@@ -1,0 +1,108 @@
+<!-- Section: Design Block -->
+<section class="white-section" id="loginPage">
+  <div class="page-wrapper full-page">
+    <div class="container-fluid">
+     <div
+        class="page-content d-flex align-items-center justify-content-center"
+      >
+        <div class="row w-100 mx-0 auth-page">
+          <div class="col-md-6 col-xl-5 mx-auto">
+            <div class="card card-login">
+              <div class="row">
+                <div class="col-md-12">
+                  <div
+                    class="auth-form-wrapper py-5"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem"
+                  >
+                    <a class="h4" style="color: #fff">JabkLah.com</a>
+                    <p class="" style="color: #e8e8e8">
+                      Welcome! Log in to your account.
+                    </p>
+                    <form #form="ngForm" (ngSubmit)="submitAdminLogInForm(form)">
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                          <div class="form-outline mb-4">
+                              <label class="form-label" for="login"  style="color: #fff">Log In</label>
+      
+                            <input 
+                             [(ngModel)]="admin.logIn" 
+                             #LogIn="ngModel" 
+                             name="login" type="text" 
+                             id="login" placeholder="log in" 
+                             class="form-control"
+                             required 
+                             minlength="5"
+                             maxlength="24" 
+                             pattern="[A-Z1-9a-z]+"/>
+                         
+                           </div>
+      
+      
+                          <div *ngIf="LogIn.touched && !LogIn.valid">
+                            <div class="alert alert-warning" *ngIf="LogIn.errors.required">
+                              this field is required
+                            </div>
+                            <div class="alert alert-warning" *ngIf="LogIn.errors.pattern">
+                              invalid format for login Ex:TD240J89B5G123
+                            </div>
+                            <div class="alert alert-warning" *ngIf="LogIn.errors.minlength">
+                              Error this field has a minimum lenght of 10
+                            </div>
+      
+                          </div>
+                        </div>
+                      
+        
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                          <label class="form-label" for="password"  style="color: #fff">Password</label>
+                        <input type="password"
+                         id="password" 
+                         class="form-control" 
+                         [(ngModel)]="admin.password"  
+                         #Password="ngModel"
+                         name="password"  
+                         placeholder="password" 
+                         required 
+                         minlength="5" />
+                      
+                      </div>
+        
+                      <div *ngIf="(Password.touched && !Password.valid)">
+                        <div class="alert alert-warning" *ngIf="Password.errors.required">
+                            this field is required
+                        </div>
+                        <div class="alert alert-warning" *ngIf="Password.errors.minlength">
+                            password must contain a minimum of 8 caracteres and numbers
+                        </div>
+                      </div>
+                      
+                      <!-- Submit button -->
+                      <button type="submit" class="btn btn-primary btn-block mb-4 small-btn" id="btnLogin" [disabled]="!(LogIn.valid && Password.valid)">
+                        Sign In
+                      </button>
+                      
+                      <div class="form-outline mb-4">
+                        <div
+                          class="alert alert-danger"
+                          role="alert"
+                          *ngIf="isLoginFailed"
+                        >
+                          Login failed: {{ errorMessage }}
+                        </div>
+                      </div>
+        
+                     
+                    
+                    </form>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

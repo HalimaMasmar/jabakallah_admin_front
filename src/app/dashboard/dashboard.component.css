@@ -1,0 +1,18 @@
+.grey-bg {  
+    background-color: #F5F7FA;
+}
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .column {
+    flex-basis: 50%;
+  }
