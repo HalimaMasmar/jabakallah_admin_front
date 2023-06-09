@@ -86,7 +86,7 @@ export class AgentAddFormComponent implements OnInit {
         this.owneruid=data.username;
         console.log(data.username);
 
-      
+        this.router.navigate(['adminSucess']);
       },
       error: err => {
         this.errorMessage = err.error.message;
