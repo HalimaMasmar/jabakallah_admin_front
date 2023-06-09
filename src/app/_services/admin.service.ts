@@ -18,7 +18,7 @@ export class AdminService {
   private adminUrl: string;
 
 	constructor(private http: HttpClient) {
-		this.adminUrl = "http://localhost:8080/api/auth/";
+		this.adminUrl = "https://bougra.herokuapp.com/api/auth/";
 	}
 
   public saveAgent(
@@ -55,13 +55,13 @@ export class AdminService {
 
   public findAllAgents(): Observable<any[]> {
 		return this.http.get<any[]>(
-			"http://localhost:8080/adminController/listAgents"
+			"https://bougra.herokuapp.com/adminController/listAgents"
 				);
 
 
 }
 public deleteAgent(numPieceIdentite: String): Observable<any> {
-	const url = "http://localhost:8080/adminController/Deleteagent" ;
+	const url = "https://bougra.herokuapp.com/adminController/Deleteagent" ;
 	return this.http.post(url, numPieceIdentite, httpOptions);
   }
   
@@ -73,7 +73,7 @@ public saveAgentFile(
 	
 ){
 
-	return this.http.post<any>("http://localhost:8080/file/uploadAgentFile",{
+	return this.http.post<any>("https://bougra.herokuapp.com/file/uploadAgentFile",{
 		file,owneruid,description
 	},httpOptionsFile);
 }
